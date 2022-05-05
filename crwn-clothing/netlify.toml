@@ -1,0 +1,4 @@
+[build]
+  base    = "crwn-clothing"
+  publish = "crwn-clothing/build/"
+  command = "npm run build"
