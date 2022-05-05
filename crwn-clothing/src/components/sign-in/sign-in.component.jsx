@@ -2,7 +2,7 @@ import { async } from "@firebase/util";
 import { useState, useContext } from "react";
 import { signInwithGooglePopup, createUserDocAuth, signInAuthUserWithEmailAndPassword, createAuthUserWithEmailAndPassword } from "../../utlis/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 import './sign-in.styles.scss'
 
@@ -65,7 +65,7 @@ const SignInForm = () => {
                 {/* <FormInput label="Confirm Password" type='password' required onChange={handleChange} name='confirmPassword' value={confirmPassword} /> */}
                 <div className="button-cont">
                     <Button type="submit">sign In</Button>
-                    <Button type="button" ButtonType='google' onClick={signInWithGoogle}>Google signIn</Button>
+                    <Button type="button" ButtonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>Google signIn</Button>
                 </div>
             </form>
         </div>

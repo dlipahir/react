@@ -6,7 +6,8 @@ import { signOutUser } from '../../utlis/firebase/firebase.utils'
 import CartIcon from '../../components/cart-icon/cart-icon.component'
 import CartDropdown from '../../components/cart-dropdowm/cart-dropdowm.component'
 import { CartContext } from '../../contexts/cart.context'
-import './navigation.styles.scss'
+//import './navigation.styles.jsx'
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles'
 
 
 function Navigation() {
@@ -15,29 +16,29 @@ function Navigation() {
     // setIsCartOpen(false);
     return (
         <Fragment>
-            <div className='navigation'>
-                <Link className='logo-container' to='/'>
+
+            <NavigationContainer>
+
+                <LogoContainer to='/'>
                     <CrwnLogo className='logo' />
-                </Link>
-                <div className="nav-links-container">
-                    <Link className='nav-link' to='/shop'>
+                </LogoContainer>
+                <NavLinks>
+                    <NavLink to='/shop'>
                         SHOP
-                    </Link>
+                    </NavLink>
                     {
-                        currentUser ? (<span className='nav-link' onClick={signOutUser}>SIGN OUT</span>) : (
-                            <Link className='nav-link' to='/auth'>
+                        currentUser ? (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>) : (
+                            <NavLink to='/auth'>
                                 SIGN IN
-                            </Link>
+                            </NavLink>
                         )
                     }
-
-                    {/* <div onClick={isCartOpenhand}>  */}
                     <CartIcon />
-                    {/* </div> */}
-                </div>
+                </NavLinks>
                 {isCartOpen && <CartDropdown />}
 
-            </div>
+            </NavigationContainer>
+
             <Outlet />
         </Fragment>
     );

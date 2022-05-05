@@ -6,7 +6,7 @@ import { UserProvider } from "./contexts/user.context";
 import "./index.css";
 import App from "./App";
 import { createContext, useState } from "react";
-import { ProductProvider } from "./contexts/product.context";
+import { CategoriesProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
 
 const rootElement = document.getElementById("root");
@@ -14,11 +14,11 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <ProductProvider>
+      <CategoriesProvider>
         <CartProvider>
           <App />
         </CartProvider>
-      </ProductProvider>
+      </CategoriesProvider>
     </UserProvider>
   </BrowserRouter>,
   rootElement
